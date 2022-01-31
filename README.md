@@ -1,6 +1,6 @@
 # Github Search App 
 
-A simple application that lists all the GitHub repositories of a given user / organization with Angular
+A simple application that lists all the GitHub repositories of a given topic with stars parameter with Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
