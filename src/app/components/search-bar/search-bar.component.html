@@ -11,15 +11,15 @@
       <div class="col-6" data-cy="topic">
    
         <input id="topic" class="form-control" type="text" formControlName="topic" [placeholder]="'Type a topic'"
-          (keyup)="onKey()" />
+          />
       </div>
       <div class="col-2" data-cy="stars">
         <input id="stars" class="form-control" type="number" onkeydown="javascript: return event.keyCode === 8 ||
         event.keyCode === 46 ? true : !isNaN(Number(event.key))" formControlName="stars" [placeholder]="'Stars'"
-          (keyup)="onKey()" />
+     />
       </div>
       <div class="col-2" data-cy="stars">
-        <button type="button" class="btn btn-success" [disabled]="noInput" (click)="search()">Search</button>
+        <button type="button" class="btn btn-success" [disabled]="!searchForm.valid" (click)="search()">Search</button>
       </div>
     </div>
     <h5 *ngIf="topics.total_count >0">Search Results for {{searchForm.controls.topic.value}} with more than
