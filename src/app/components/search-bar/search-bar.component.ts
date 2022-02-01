@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GithubServiceService } from 'src/services/github-service.service';
 import { Repository } from 'src/types/Repository';
 
@@ -12,7 +12,7 @@ export class SearchTopicsComponent implements OnInit {
 
   title = 'Github Search';
   isLoading:boolean;
-  noInput:boolean = true;
+  
   
   searchForm: FormGroup
   topics: Repository[] = []
@@ -25,17 +25,9 @@ export class SearchTopicsComponent implements OnInit {
 
   buildForm(){
    this.searchForm = this.fb.group({
-      topic:[null],
-      stars:[null]
+      topic:[null, Validators.required],
+      stars:[null, Validators.required]
     })
-  }
-
-  onKey() { 
-    if (this.searchForm.controls.topic.value && this.searchForm.controls.stars.value) {
-  			this.noInput = false;
-  	} else {
-  			this.noInput = true;
-  	} 
   }
 
   search(): void {
